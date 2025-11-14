@@ -1,19 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import path from "path";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    extensions: [".js", ".jsx", ".json"],
-    alias: {
-      "lucide-react@0.487.0": "lucide-react",
-      "class-variance-authority@0.7.1": "class-variance-authority",
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
-  build: {
-    target: "esnext",
-    outDir: "build",
-  },
+  plugins: [react(), tailwindcss()],
 });

@@ -1,7 +1,4 @@
-import { Card } from "./ui/card";
-import { Badge } from "./ui/badge";
 import { Check, X, Volume2, Bookmark } from "lucide-react";
-import { Button } from "./ui/button";
 
 const getTypeInfo = (type) => {
   switch (type) {
@@ -43,48 +40,48 @@ export function QuestionCard({
   const difficultyInfo = getDifficultyInfo(question.difficulty);
 
   return (
-    <Card className="p-8 shadow-2xl border-none bg-white">
+    <div className="p-8 shadow-2xl border-none bg-white rounded-xl flex flex-col gap-6">
       {/* Question Type Badge */}
       <div className="flex items-center justify-between gap-2 mb-6">
         <div className="flex items-center gap-2">
-          <Badge className={`${typeInfo.color} text-white px-4 py-1`}>
+          <span
+            className={`${typeInfo.color} text-white px-4 py-1 inline-flex items-center justify-center rounded-md border border-transparent text-xs font-medium w-fit whitespace-nowrap`}
+          >
             {typeInfo.emoji} {typeInfo.label}
-          </Badge>
-          <Badge className={`${difficultyInfo.color} text-white px-4 py-1`}>
+          </span>
+          <span
+            className={`${difficultyInfo.color} text-white px-4 py-1 inline-flex items-center justify-center rounded-md border border-transparent text-xs font-medium w-fit whitespace-nowrap`}
+          >
             {difficultyInfo.emoji} {difficultyInfo.label}
-          </Badge>
+          </span>
         </div>
-        <Button
-          size="sm"
-          variant="outline"
+        <button
           onClick={() => onToggleBookmark(question.word)}
-          className={`${
+          className={`h-8 px-3 rounded-md text-sm font-medium inline-flex items-center justify-center gap-2 border transition-all ${
             isBookmarked
               ? "bg-purple-100 border-purple-400 text-purple-700"
-              : "border-gray-300"
+              : "border-gray-300 bg-white hover:bg-gray-50"
           }`}
         >
           <Bookmark
             className={`w-4 h-4 ${isBookmarked ? "fill-purple-600" : ""}`}
           />
-        </Button>
+        </button>
       </div>
 
       {/* Word being learned */}
       <div className="mb-6">
         <p className="text-gray-600 mb-2">Word:</p>
         <div className="flex items-center gap-3">
-          <div className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg">
+          <div className="inline-block bg-linear-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg">
             {question.word}
           </div>
-          <Button
-            size="sm"
-            variant="outline"
+          <button
             onClick={() => onPronounce(question.word)}
-            className="border-purple-300 hover:bg-purple-50"
+            className="h-8 px-3 rounded-md text-sm font-medium inline-flex items-center justify-center gap-2 border border-purple-300 hover:bg-purple-50 bg-white transition-all"
           >
             <Volume2 className="w-4 h-4" />
-          </Button>
+          </button>
         </div>
       </div>
 
@@ -168,6 +165,6 @@ export function QuestionCard({
           </p>
         </div>
       )}
-    </Card>
+    </div>
   );
 }

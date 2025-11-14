@@ -1,7 +1,4 @@
-import { Card } from "./ui/card";
-import { Button } from "./ui/button";
 import { Bookmark, Volume2, X } from "lucide-react";
-import { Badge } from "./ui/badge";
 
 const getTypeInfo = (type) => {
   switch (type) {
@@ -39,7 +36,7 @@ export function BookmarkedWords({
   }
 
   return (
-    <Card className="p-6 mb-6 bg-white shadow-lg border-none">
+    <div className="p-6 mb-6 bg-white shadow-lg border-none rounded-xl flex flex-col gap-6">
       <div className="flex items-center gap-2 mb-4">
         <Bookmark className="w-5 h-5 text-purple-600 fill-purple-600" />
         <h3 className="text-gray-800">
@@ -52,22 +49,24 @@ export function BookmarkedWords({
           return (
             <div
               key={item.word}
-              className="bg-gradient-to-br from-purple-50 to-pink-50 p-4 rounded-lg border-2 border-purple-200"
+              className="bg-linear-to-br from-purple-50 to-pink-50 p-4 rounded-lg border-2 border-purple-200"
             >
               <div className="flex items-start justify-between mb-2">
                 <div className="flex-1">
                   <p className="text-gray-900 mb-2">{item.word}</p>
                   <div className="flex gap-2 flex-wrap">
-                    <Badge className={`${typeInfo.color} text-white text-xs`}>
+                    <span
+                      className={`${typeInfo.color} text-white text-xs inline-flex items-center justify-center rounded-md border border-transparent px-2 py-0.5 font-medium w-fit whitespace-nowrap`}
+                    >
                       {typeInfo.label}
-                    </Badge>
-                    <Badge
+                    </span>
+                    <span
                       className={`${getDifficultyColor(
                         item.difficulty
-                      )} text-white text-xs`}
+                      )} text-white text-xs inline-flex items-center justify-center rounded-md border border-transparent px-2 py-0.5 font-medium w-fit whitespace-nowrap`}
                     >
                       {item.difficulty}
-                    </Badge>
+                    </span>
                   </div>
                 </div>
                 <button
@@ -78,19 +77,17 @@ export function BookmarkedWords({
                   <X className="w-4 h-4" />
                 </button>
               </div>
-              <Button
-                size="sm"
-                variant="outline"
+              <button
                 onClick={() => onPronounce(item.word)}
-                className="w-full mt-2 border-purple-300 hover:bg-purple-100"
+                className="w-full mt-2 h-8 px-3 rounded-md text-sm font-medium inline-flex items-center justify-center gap-2 border border-purple-300 hover:bg-purple-100 bg-white transition-all"
               >
                 <Volume2 className="w-4 h-4 mr-2" />
                 Pronounce
-              </Button>
+              </button>
             </div>
           );
         })}
       </div>
-    </Card>
+    </div>
   );
 }

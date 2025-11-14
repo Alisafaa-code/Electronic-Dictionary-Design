@@ -1,14 +1,14 @@
 {
-  "name": "Electronic Dictionary Design",
+  "name": "electronic-dictionary-design",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
-    "class-variance-authority": "^0.7.1",
-    "clsx": "*",
+    "@tailwindcss/vite": "^4.1.17",
     "lucide-react": "^0.487.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tailwind-merge": "*"
+    "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

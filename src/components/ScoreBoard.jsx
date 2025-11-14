@@ -1,12 +1,10 @@
-import { Card } from "./ui/card";
-import { Progress } from "./ui/progress";
 import { Award, Target } from "lucide-react";
 
 export function ScoreBoard({ currentQuestion, totalQuestions, score }) {
   const progress = (currentQuestion / totalQuestions) * 100;
 
   return (
-    <Card className="p-6 mb-8 bg-white shadow-lg border-none">
+    <div className="p-6 mb-8 bg-white shadow-lg border-none rounded-xl flex flex-col gap-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
         {/* Current Question */}
         <div className="flex items-center gap-3">
@@ -59,8 +57,19 @@ export function ScoreBoard({ currentQuestion, totalQuestions, score }) {
           <span>Progress</span>
           <span>{Math.round(progress)}%</span>
         </div>
-        <Progress value={progress} className="h-3" />
+        <div
+          role="progressbar"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={progress}
+          className="bg-primary/20 relative h-3 w-full overflow-hidden rounded-full"
+        >
+          <div
+            className="bg-primary h-full w-full flex-1 transition-all duration-300 ease-in-out"
+            style={{ transform: `translateX(-${100 - progress}%)` }}
+          />
+        </div>
       </div>
-    </Card>
+    </div>
   );
 }
