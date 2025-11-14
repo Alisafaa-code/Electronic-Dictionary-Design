@@ -21,12 +21,14 @@ export function NavigationButtons({
 
       {isQuizComplete && (
         <div className="text-center w-full">
-          <div className="bg-white rounded-2xl p-8 shadow-xl mb-6">
-            <h2 className="text-green-600 mb-4">🎉 اكتمل الاختبار! 🎉</h2>
-            <p className="text-gray-700 mb-2">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl mb-6">
+            <h2 className="text-green-600 dark:text-green-400 mb-4">
+              🎉 اكتمل الاختبار! 🎉
+            </h2>
+            <p className="text-gray-700 dark:text-gray-300 mb-2">
               حصلت على {score} من {totalQuestions}
             </p>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-400">
               {score === totalQuestions
                 ? "درجة كاملة! أنت متقن الكلمات! 🌟"
                 : score >= totalQuestions * 0.8

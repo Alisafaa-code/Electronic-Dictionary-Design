@@ -30,15 +30,19 @@ export function useQuiz() {
   }, [selectedDifficulty]);
 
   const selectAnswer = (answerIndex) => {
-    if (answered) return;
+    if (answered) return false;
 
     setSelectedAnswer(answerIndex);
     setAnswered(true);
     setShowExplanation(true);
 
-    if (answerIndex === questions[currentQuestionIndex].correctAnswer) {
+    const isCorrect =
+      answerIndex === questions[currentQuestionIndex].correctAnswer;
+    if (isCorrect) {
       setScore(score + 1);
     }
+
+    return isCorrect;
   };
 
   const nextQuestion = () => {

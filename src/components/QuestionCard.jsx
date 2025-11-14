@@ -40,7 +40,7 @@ export function QuestionCard({
   const difficultyInfo = getDifficultyInfo(question.difficulty);
 
   return (
-    <div className="p-8 shadow-2xl border-none bg-white rounded-xl flex flex-col gap-6">
+    <div className="p-8 shadow-2xl border-none bg-white dark:bg-gray-800 rounded-xl flex flex-col gap-6">
       {/* Question Type Badge */}
       <div className="flex items-center justify-between gap-2 mb-6">
         <div className="flex items-center gap-2">
@@ -71,14 +71,14 @@ export function QuestionCard({
 
       {/* Word being learned */}
       <div className="mb-6">
-        <p className="text-gray-600 mb-2">الكلمة:</p>
+        <p className="text-gray-600 dark:text-gray-400 mb-2">الكلمة:</p>
         <div className="flex items-center gap-3">
-          <div className="inline-block bg-linear-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg">
+          <div className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 dark:from-purple-600 dark:to-pink-600 text-white px-6 py-3 rounded-lg">
             {question.word}
           </div>
           <button
             onClick={() => onPronounce(question.word)}
-            className="h-8 px-3 rounded-md text-sm font-medium inline-flex items-center justify-center gap-2 border border-purple-300 hover:bg-purple-50 bg-white transition-all"
+            className="h-8 px-3 rounded-md text-sm font-medium inline-flex items-center justify-center gap-2 border border-purple-300 dark:border-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all"
           >
             <Volume2 className="w-4 h-4" />
           </button>
@@ -86,7 +86,9 @@ export function QuestionCard({
       </div>
 
       {/* Question Text */}
-      <h2 className="text-gray-800 mb-8">{question.question}</h2>
+      <h2 className="text-gray-800 dark:text-gray-200 mb-8">
+        {question.question}
+      </h2>
 
       {/* Answer Options */}
       <div className="grid grid-cols-1 gap-4 mb-6">
@@ -105,26 +107,37 @@ export function QuestionCard({
                 p-4 rounded-xl border-2 text-left transition-all duration-200
                 ${
                   !answered &&
-                  "hover:border-purple-400 hover:bg-purple-50 cursor-pointer"
+                  "hover:border-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900 cursor-pointer"
                 }
                 ${answered && "cursor-not-allowed"}
-                ${!answered && isSelected && "border-purple-500 bg-purple-50"}
-                ${showCorrect && "border-green-500 bg-green-50"}
-                ${showIncorrect && "border-red-500 bg-red-50"}
+                ${
+                  !answered &&
+                  isSelected &&
+                  "border-purple-500 bg-purple-50 dark:bg-purple-900"
+                }
+                ${
+                  showCorrect &&
+                  "border-green-500 bg-green-50 dark:bg-green-900"
+                }
+                ${showIncorrect && "border-red-500 bg-red-50 dark:bg-red-900"}
                 ${
                   !isSelected &&
                   !showCorrect &&
                   !showIncorrect &&
-                  "border-gray-200"
+                  "border-gray-200 dark:border-gray-700"
                 }
               `}
             >
               <div className="flex items-center justify-between">
                 <span
                   className={`
-                  ${showCorrect && "text-green-700"}
-                  ${showIncorrect && "text-red-700"}
-                  ${!showCorrect && !showIncorrect && "text-gray-800"}
+                  ${showCorrect && "text-green-700 dark:text-green-300"}
+                  ${showIncorrect && "text-red-700 dark:text-red-300"}
+                  ${
+                    !showCorrect &&
+                    !showIncorrect &&
+                    "text-gray-800 dark:text-gray-200"
+                  }
                 `}
                 >
                   {option}
@@ -154,12 +167,12 @@ export function QuestionCard({
           p-4 rounded-xl border-2 
           ${
             selectedAnswer === question.correctAnswer
-              ? "bg-green-50 border-green-200"
-              : "bg-blue-50 border-blue-200"
+              ? "bg-green-50 dark:bg-green-900 border-green-200 dark:border-green-700"
+              : "bg-blue-50 dark:bg-blue-900 border-blue-200 dark:border-blue-700"
           }
         `}
         >
-          <p className="text-gray-700">
+          <p className="text-gray-700 dark:text-gray-300">
             <span className="ml-2">💡</span>
             <strong>شرح:</strong> {question.explanation}
           </p>

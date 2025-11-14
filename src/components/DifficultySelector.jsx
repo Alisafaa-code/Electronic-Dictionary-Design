@@ -33,9 +33,9 @@ export function DifficultySelector({ selectedDifficulty, onSelectDifficulty }) {
   ];
 
   return (
-    <div className="p-6 mb-6 bg-white shadow-lg border-none rounded-xl flex flex-col gap-6">
+    <div className="p-6 mb-6 bg-white dark:bg-gray-800 shadow-lg border-none rounded-xl flex flex-col gap-6">
       <div className="mb-3">
-        <h3 className="text-gray-800">اختر مستوى الصعوبة</h3>
+        <h3 className="text-gray-800 dark:text-gray-200">اختر مستوى الصعوبة</h3>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {difficulties.map(({ value, label, icon: Icon, color, bgColor }) => (
@@ -46,8 +46,11 @@ export function DifficultySelector({ selectedDifficulty, onSelectDifficulty }) {
               h-9 px-4 py-6 rounded-md text-sm font-medium inline-flex items-center justify-center gap-2 transition-all
               ${
                 selectedDifficulty === value
-                  ? "bg-linear-to-r from-purple-600 to-pink-600 text-white border-none hover:from-purple-700 hover:to-pink-700"
-                  : `${bgColor}  ${color.replace("text-", "border-")}`
+                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-none hover:from-purple-700 hover:to-pink-700"
+                  : `${bgColor} dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200 ${color.replace(
+                      "text-",
+                      "border-"
+                    )}`
               }
             `}
           >
