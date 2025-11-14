@@ -62,10 +62,10 @@ export function ScoreBoard({ currentQuestion, totalQuestions, score }) {
           aria-valuemin={0}
           aria-valuemax={100}
           aria-valuenow={progress}
-          className="bg-primary/20 relative h-3 w-full overflow-hidden rounded-full"
+          className="bg-purple-200 relative h-3 w-full overflow-hidden rounded-full"
         >
           <div
-            className="bg-primary h-full w-full flex-1 transition-all duration-300 ease-in-out"
+            className="bg-purple-600 h-full w-full flex-1 transition-all duration-300 ease-in-out"
             style={{ transform: `translateX(-${100 - progress}%)` }}
           />
         </div>
