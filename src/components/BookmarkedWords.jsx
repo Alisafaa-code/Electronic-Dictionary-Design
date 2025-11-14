@@ -3,13 +3,13 @@ import { Bookmark, Volume2, X } from "lucide-react";
 const getTypeInfo = (type) => {
   switch (type) {
     case "synonym":
-      return { label: "Synonym", color: "bg-blue-500" };
+      return { label: "مرادف", color: "bg-blue-500" };
     case "antonym":
-      return { label: "Antonym", color: "bg-orange-500" };
+      return { label: "مضاد", color: "bg-orange-500" };
     case "usage":
-      return { label: "Usage", color: "bg-green-500" };
+      return { label: "الاستخدام", color: "bg-green-500" };
     default:
-      return { label: "Question", color: "bg-gray-500" };
+      return { label: "سؤال", color: "bg-gray-500" };
   }
 };
 
@@ -40,7 +40,7 @@ export function BookmarkedWords({
       <div className="flex items-center gap-2 mb-4">
         <Bookmark className="w-5 h-5 text-purple-600 fill-purple-600" />
         <h3 className="text-gray-800">
-          My Bookmarked Words ({bookmarkedWords.length})
+          كلماتي المحفوظة ({bookmarkedWords.length})
         </h3>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -81,8 +81,8 @@ export function BookmarkedWords({
                 onClick={() => onPronounce(item.word)}
                 className="w-full mt-2 h-8 px-3 rounded-md text-sm font-medium inline-flex items-center justify-center gap-2 border border-purple-300 hover:bg-purple-100 bg-white transition-all"
               >
-                <Volume2 className="w-4 h-4 mr-2" />
-                Pronounce
+                <Volume2 className="w-4 h-4 ml-2" />
+                نطق
               </button>
             </div>
           );

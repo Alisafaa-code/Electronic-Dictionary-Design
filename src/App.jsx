@@ -38,7 +38,7 @@ export default function App() {
       <div className="min-h-screen bg-linear-to-br from-purple-100 via-pink-100 to-blue-100 flex items-center justify-center">
         <div className="text-center">
           <BookOpen className="w-16 h-16 mx-auto mb-4 text-purple-600 animate-pulse" />
-          <p>Loading questions...</p>
+          <p>جاري تحميل الأسئلة...</p>
         </div>
       </div>
     );

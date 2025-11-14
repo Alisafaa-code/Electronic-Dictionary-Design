@@ -13,7 +13,7 @@ export function ScoreBoard({ currentQuestion, totalQuestions, score }) {
           </div>
           <div>
             <p className="text-[rgb(160,160,191)] font-[ABeeZee] text-[16px] font-normal not-italic">
-              Question
+              السؤال
             </p>
             <p className="text-gray-900">
               {currentQuestion} / {totalQuestions}
@@ -27,7 +27,7 @@ export function ScoreBoard({ currentQuestion, totalQuestions, score }) {
             <Award className="w-6 h-6 text-green-600" />
           </div>
           <div>
-            <p className="text-[rgb(194,202,214)]">Score</p>
+            <p className="text-[rgb(194,202,214)]">النتيجة</p>
             <p className="text-gray-900">
               {score} / {totalQuestions}
             </p>
@@ -40,7 +40,7 @@ export function ScoreBoard({ currentQuestion, totalQuestions, score }) {
             <Award className="w-6 h-6 text-blue-600" />
           </div>
           <div>
-            <p className="text-gray-600">Accuracy</p>
+            <p className="text-gray-600">الدقة</p>
             <p className="text-gray-900">
               {currentQuestion > 0
                 ? Math.round((score / currentQuestion) * 100)
@@ -54,7 +54,7 @@ export function ScoreBoard({ currentQuestion, totalQuestions, score }) {
       {/* Progress Bar */}
       <div className="bg-[rgba(232,226,226,0)] rounded-[10px]">
         <div className="flex justify-between text-gray-600 mb-2">
-          <span>Progress</span>
+          <span>التقدم</span>
           <span>{Math.round(progress)}%</span>
         </div>
         <div

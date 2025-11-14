@@ -3,26 +3,26 @@ import { Check, X, Volume2, Bookmark } from "lucide-react";
 const getTypeInfo = (type) => {
   switch (type) {
     case "synonym":
-      return { label: "Synonym", color: "bg-blue-500", emoji: "🔄" };
+      return { label: "مرادف", color: "bg-blue-500", emoji: "🔄" };
     case "antonym":
-      return { label: "Antonym", color: "bg-orange-500", emoji: "⚖️" };
+      return { label: "مضاد", color: "bg-orange-500", emoji: "⚖️" };
     case "usage":
-      return { label: "Word Usage", color: "bg-green-500", emoji: "📝" };
+      return { label: "استخدام الكلمة", color: "bg-green-500", emoji: "📝" };
     default:
-      return { label: "Question", color: "bg-gray-500", emoji: "❓" };
+      return { label: "سؤال", color: "bg-gray-500", emoji: "❓" };
   }
 };
 
 const getDifficultyInfo = (difficulty) => {
   switch (difficulty) {
     case "easy":
-      return { label: "Easy", color: "bg-green-500", emoji: "⭐" };
+      return { label: "سهل", color: "bg-green-500", emoji: "⭐" };
     case "medium":
-      return { label: "Medium", color: "bg-yellow-500", emoji: "⚡" };
+      return { label: "متوسط", color: "bg-yellow-500", emoji: "⚡" };
     case "hard":
-      return { label: "Hard", color: "bg-red-500", emoji: "🏆" };
+      return { label: "صعب", color: "bg-red-500", emoji: "🏆" };
     default:
-      return { label: "Unknown", color: "bg-gray-500", emoji: "❓" };
+      return { label: "غير معروف", color: "bg-gray-500", emoji: "❓" };
   }
 };
 
@@ -71,7 +71,7 @@ export function QuestionCard({
 
       {/* Word being learned */}
       <div className="mb-6">
-        <p className="text-gray-600 mb-2">Word:</p>
+        <p className="text-gray-600 mb-2">الكلمة:</p>
         <div className="flex items-center gap-3">
           <div className="inline-block bg-linear-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg">
             {question.word}
@@ -132,13 +132,13 @@ export function QuestionCard({
                 {showCorrect && (
                   <div className="flex items-center gap-2">
                     <Check className="w-6 h-6 text-green-600" />
-                    <span className="text-green-600">Correct!</span>
+                    <span className="text-green-600">صحيح!</span>
                   </div>
                 )}
                 {showIncorrect && (
                   <div className="flex items-center gap-2">
                     <X className="w-6 h-6 text-red-600" />
-                    <span className="text-red-600">Incorrect</span>
+                    <span className="text-red-600">خطأ</span>
                   </div>
                 )}
               </div>
@@ -160,8 +160,8 @@ export function QuestionCard({
         `}
         >
           <p className="text-gray-700">
-            <span className="mr-2">💡</span>
-            <strong>Explanation:</strong> {question.explanation}
+            <span className="ml-2">💡</span>
+            <strong>شرح:</strong> {question.explanation}
           </p>
         </div>
       )}
